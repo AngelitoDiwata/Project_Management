@@ -243,6 +243,15 @@ app.post('/login', async function (req, res) {
     res.send(result)
 })
 
+app.post('/customQuery', async function (req, res) {
+    try{
+    const result = await knex.raw(req.body.query)
+    res.send(result)
+    } catch (e) {
+        res.send([[{data: ''}]])
+    }
+})
+
 export default {
     path: '/api',
     handler: app

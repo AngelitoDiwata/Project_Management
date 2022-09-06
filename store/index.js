@@ -186,6 +186,12 @@ export const actions = {
         const endpoint = `api/getOverallProjPerc`
         const result = await this.$axios.get(endpoint)
         return result.data
+    },
+
+    async customQuery (_, payload) {
+        const endpoint = `api/customQuery`
+        const result = await this.$axios.post(endpoint, payload)
+        return result.data[0]
     }
 }
 
